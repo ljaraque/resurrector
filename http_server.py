@@ -6,6 +6,10 @@ HOST_NAME = '0.0.0.0' # !!!REMEMBER TO CHANGE THIS!!!
 PORT_NUMBER = 80 # Maybe set this to 9000.
 PATH = "/home/pi/resurrector/"
 
+#initialize heartbeat to avoid reset on boot due to old heartbeat saved
+with open(PATH+"last_heartbeat.txt", "w") as text_file:
+    text_file.write("%s" % time.time())
+
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_HEAD(s):
         s.send_response(200)
