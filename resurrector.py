@@ -15,5 +15,6 @@ else:
     with open(PATH + "last_heartbeat.txt", "w") as text_file:
         text_file.write("%s" % now)
 print ( now - float(time_of_last_heartbeat) )/60
-if now - float(time_of_last_heartbeat) > 5 * 60 and system("ping -c 1 " + GATEWAY) == 0: #check alive but if network is up
+if (now - float(time_of_last_heartbeat) > 5 * 60 and 
+    system("ping -c 1 " + GATEWAY) == 0): #check alive but if network is up
     relay.activate(gpio_to_other_machine_reset)

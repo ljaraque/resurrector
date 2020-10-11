@@ -22,16 +22,6 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         #saves current time of current received heartbeat
         with open(PATH+"last_heartbeat.txt", "w") as text_file:
             text_file.write("%s" % time_of_this_heartbeat)
-        '''
-        s.send_header("Content-type", "text/html")
-        s.end_headers()
-        s.wfile.write("<html><head><title>Title goes here.</title></head>")
-        s.wfile.write("<body><p>This is a test.</p>")
-        # If someone went to "http://something.somewhere.net/foo/bar/",
-        # then s.path equals "/foo/bar/".
-        s.wfile.write("<p>You accessed path: %s</p>" % s.path)
-        s.wfile.write("</body></html>")
-        '''
 
 if __name__ == '__main__':
     server_class = BaseHTTPServer.HTTPServer
